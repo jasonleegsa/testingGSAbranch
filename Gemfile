@@ -14,6 +14,7 @@ gem "kramdown-parser-gfm", "~> 1.1.0"
 gem "autoprefixer-rails"
 
 group :jekyll_plugins do
+  gem "jekyll-include-cache"
   gem "jekyll-feed", "~> 0.15"
   gem 'jekyll-redirect-from'
   gem 'jekyll-paginate-v2', "3.0.0"  
