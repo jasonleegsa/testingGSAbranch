@@ -1,0 +1,198 @@
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+##########################################################################################
+# Be sure to edit the values below
+##########################################################################################
+
+title: FICAM Playbooks
+email: icam@gsa.gov
+description: Helping the U.S. Federal Government Enterprise design, procure, integrate, and operate Federal Enterprise Identity, Credential, and Access Management services.  .
+baseurl: ""
+repourl: "https://github.com/GSA/ficam-playbooks"
+
+#for site map search
+url: https://playbooks.idmanagement.gov
+
+# GitHub information
+# This is used for adding an edit this page link to the footer
+github_info:
+  organization: GSA
+  repository: ficam-playbooks
+  default_branch: staging
+
+# Twitter handle. Only the handle, not the URL.
+# twitter: 18F
+
+dap:
+  agency: GSA
+
+  # Optional
+  # subagency: your-subagency
+
+# Configuration for Google Analytics
+ga:
+  # ua: your-ua
+
+# Site Navigation
+primary_navigation:
+  - name: Home
+    description: FICAM Playbooks Home Page
+    url: /
+  - name: FICAM Architecture
+    description: FICAM Archtecture
+    url: /arch/
+  - name: ICAM Program Management
+    description: ICAM Program Management
+    url: /pm/
+  - name: Federal PKI (FPKI)
+    url: /fpki/
+  - name: Personal Identity Verification (PIV)
+    url: /piv/
+  - name: Physical Access Control Systems (PACS)
+    description: Physical Access Control Systems Guide
+    url: /pacs/
+  - name: Other FICAM Playbooks
+    description: Other FICAM Playbooks
+    url: /playbooks/
+#    children:
+#      - name: Playbooks Overview
+#        url: /playbooks/
+#      - name: Digital Identity Risk Assessment (DIRA)
+#        url: /playbooks/dira/
+#      - name: Digital Worker Identity
+#        url: /playbooks/dw/
+#      - name: Enterprise Single Sign-On
+#        url: /playbooks/sso/
+
+secondary_navigation:
+  - name: Contact Us
+    url: https://www.idmanagement.gov/contact-us/
+  - name: About Us
+    url: https://www.idmanagement.gov/about-us/
+  - name: Contribute
+    url: https://www.idmanagement.gov/contribute/
+
+# Search.gov configuration
+#
+# 1. Create an account with Search.gov https://search.usa.gov/signup
+# 2. Add a new site.
+# 3. Add your site/affiliate name here.
+searchgov:
+
+  # You should not change this.
+  endpoint: https://search.usa.gov
+
+  # replace this with your search.gov account
+  affiliate: idmprod
+
+  # replace with your access key
+  access_key: zCEoL5u4U5XFzfFSxy8y4Iz6vdtTjsb4U539L_rgDTM=
+
+  # this renders the results within the page instead of sending to user to search.gov
+  inline: false
+
+##########################################################################################
+# The values below here are more advanced and should only be
+# changed if you know what they do
+##########################################################################################
+
+collections:
+  ficampm:
+    output: true
+    permalink: /pm/:path/
+  arch:
+    output: true
+    permalink: /arch/:path/
+  fpki:
+    output: true
+    permalink: /fpki/:path/
+  pacs:
+    output: true
+    permalink: /pacs/:path/
+  piv:
+    output: true
+    permalink: /piv/:path/
+  playbooks:
+    output: true
+    permalink: /playbooks/:path/
+  guides:
+    output: true
+  pages:
+    output: true
+    permalink: /:path/
+
+permalink: pretty
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-paginate-v2
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+############################################################
+# Site configuration for the Jekyll 3 Pagination Gem
+# The values here represent the defaults if nothing is set
+pagination:
+  # Site-wide kill switch, disabled here it doesn't run at all
+  enabled: true
+  # Set to 'true' to enable pagination debugging. This can be enabled in the site config or only for individual pagination pages
+  debug: false
+  # The default document collection to paginate if nothing is specified ('posts' is default)
+  collection: "posts"
+  # How many objects per paginated page, used to be `paginate` (default: 0, means all)
+  per_page: 3
+  # The permalink structure for the paginated pages (this can be any level deep)
+  permalink: "/page/:num/" # Pages are index.html inside this folder (default)
+  #permalink: '/page/:num.html' # Pages are simple html files
+  #permalink: '/page/:num' # Pages are html files, linked jekyll extensionless permalink style.
+  # Optional the title format for the paginated pages (supports :title for original page title, :num for pagination page number, :max for total number of pages)
+  title: ":title - page :num"
+  # Limit how many pagenated pages to create (default: 0, means all)
+  limit: 0
+  # Optional, defines the field that the posts should be sorted on (omit to default to 'date')
+  sort_field: "date"
+  # Optional, sorts the posts in reverse order (omit to default decending or sort_reverse: true)
+  sort_reverse: true
+  # Optional, the default category to use, omit or just leave this as 'posts' to get a backwards-compatible behavior (all posts)
+  category: "posts"
+  # Optional, the default tag to use, omit to disable
+  tag: ""
+  # Optional, the default locale to use, omit to disable (depends on a field 'locale' to be specified in the posts,
+  # in reality this can be any value, suggested are the Microsoft locale-codes (e.g. en_US, en_GB) or simply the ISO-639 language code )
+  locale: ""
+  # Optional,omit or set both before and after to zero to disable.
+  # Controls how the pagination trail for the paginated pages look like.
+  trail:
+    before: 2
+    after: 2
+  # Optional, the default file extension for generated pages (e.g html, json, xml).
+  # Internally this is set to html by default
+  extension: html
+  # Optional, the default name of the index file for generated pages (e.g. 'index.html')
+  # Without file extension
+  indexpage: "index.html"
+
+exclude:
+  - package.json
+  - package-lock.json
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE.md
+  - degit.json
+  - vendor
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - docker-compose.yml
+
+assets:
+  sources:
+    - node_modules/uswds/dist/img
+    - node_modules/uswds/dist/js
+    - node_modules/uswds/dist/scss
